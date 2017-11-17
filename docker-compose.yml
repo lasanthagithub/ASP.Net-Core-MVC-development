@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  ms4project:
-    image: ms4project
-    build:
-      context: ./MS4Project
-      dockerfile: Dockerfile
