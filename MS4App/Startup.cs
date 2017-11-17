@@ -34,6 +34,16 @@ namespace MS4App
                 .AddDefaultTokenProviders();
 
 
+            // For password security
+            services.Configure<IdentityOptions>(options =>
+           {
+               options.Password.RequireDigit = false; // change if needed
+               options.Password.RequiredLength = 2; // change if needed
+               options.Password.RequireLowercase = false; // change if needed
+               options.Password.RequireUppercase = false; // change if needed
+               options.Password.RequireNonAlphanumeric = false; // change if needed
+
+           });
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();

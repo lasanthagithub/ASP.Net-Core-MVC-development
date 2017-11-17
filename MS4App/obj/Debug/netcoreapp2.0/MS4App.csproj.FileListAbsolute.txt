@@ -10,3 +10,15 @@ F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\MS
 F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\MS4App\obj\Debug\netcoreapp2.0\MS4App.AssemblyInfo.cs
 F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\MS4App\obj\Debug\netcoreapp2.0\MS4App.dll
 F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\MS4App\obj\Debug\netcoreapp2.0\MS4App.pdb
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\bin\Debug\netcoreapp2.0\MS4App.deps.json
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\bin\Debug\netcoreapp2.0\MS4App.runtimeconfig.json
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\bin\Debug\netcoreapp2.0\MS4App.runtimeconfig.dev.json
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\bin\Debug\netcoreapp2.0\MS4App.dll
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\bin\Debug\netcoreapp2.0\MS4App.pdb
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\MS4App.csprojResolveAssemblyReference.cache
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\MS4App.csproj.CoreCompileInputs.cache
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\MS4App.AssemblyInfoInputs.cache
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\MS4App.AssemblyInfo.cs
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\MS4App.dll
+F:\One_drive_Gmail\OneDrive\My_Projets_Git\dot_net_projects\MS4Project\MS4App\obj\Debug\netcoreapp2.0\MS4App.pdb
