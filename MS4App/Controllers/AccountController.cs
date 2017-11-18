@@ -51,6 +51,8 @@ namespace MS4App.Controllers
             return View();
         }
 
+        public bool isLoggedIn = false;
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -64,6 +66,7 @@ namespace MS4App.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    isLoggedIn = true;
                     _logger.LogInformation("User logged in.");
                     return RedirectToLocal(returnUrl);
                 }

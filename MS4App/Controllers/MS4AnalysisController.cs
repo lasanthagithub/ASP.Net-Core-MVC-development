@@ -12,6 +12,7 @@ namespace MS4App.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            
             return View();
         }
     }

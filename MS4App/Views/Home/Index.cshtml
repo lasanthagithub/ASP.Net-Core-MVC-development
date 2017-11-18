@@ -49,6 +49,28 @@
     </a>
 </div>
 
+<div class="jumbotron text-center">
+    <h2>MS4 Analysis</h2>
+    <p class="lead">This is the basic structure of this site. The construction is on going.</p>
+    <p>Basic introduction and related attractive images/animations of the calculations/project will be displayed on the main page.</p>
+    
+    @*Check the user is logged in or not*@
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a asp-area="" asp-controller="Account" asp-action="register" class="btn btn-primary btn-lg">Register</a>
+        <a asp-area="" asp-controller="Account" asp-action="login" class="btn btn-success btn-lg">Login</a>
+    }
+    else
+
+    { 
+        <a asp-area="" asp-controller="MS4Analysis" asp-action="Index" class="btn btn-primary btn-lg">MS4 Analysis Tool</a>
+    }
+     
+
+
+
+</div>
+
 <div class="row">
     <div class="col-md-3">
         <h2>Application uses</h2>
