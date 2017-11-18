@@ -7,17 +7,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MS4App.Controllers
 {
-    public class MS4AnalysisController : Controller
+    public class CnComputationController : Controller
     {
         [Authorize]
-        public IActionResult Index()
-        {
-            
-            return View();
-        }
-
-        [Authorize]
-        //[Route("[controller]/{CnComputation}/[action]")]
+        [Route("[controller]/{CnComputation}/[action]")]
         public IActionResult CnComputationLanding()
         {
             return View();
