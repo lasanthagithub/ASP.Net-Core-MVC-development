@@ -10,7 +10,13 @@ namespace MS4App.Controllers
     public class CnComputationController : Controller
     {
         [Authorize]
-        [Route("[controller]/{CnComputation}/[action]")]
+        public IActionResult CnComputationLanding()
+        {
+            return View();
+        }
+
+
+        [Authorize]
         public IActionResult CnComputationLanding()
         {
             return View();
