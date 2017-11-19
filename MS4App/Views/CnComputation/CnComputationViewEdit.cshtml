@@ -1,5 +1,54 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "_CnComputationLayout";
 }
+
+@{
+    ViewData["Title"] = "CnComputationViewEdit";
+}
+
+<form method="POST" action="/cn_computation_view_edit">
+    <div class="col-md-7">
+        <!--<h2>CN Computation</h2>-->
+        <h3>Select prefered criteria</h3>
+
+        <table class="table table.striped">
+            <thead>
+                <tr>
+                    <th rowspan="2"></th>
+                    <th rowspan="4">Cover Description</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @for (int i = 1; i <= 10; i++){                
+                <tr>
+                    <td><input type="checkbox" name="cover_des_check" id="Checkbox1" value="{{key}}"></td>
+                    <td>{{@i}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+    <div class="col-md-3">
+        <br />
+        <div>
+            <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 1..." style="height:35px; width:150px">
+        </div>
+        <br />
+        <div>
+            <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 2..." style="height:35px; width:150px">
+        </div>
+        <br />
+        <div>
+            <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 3..." style="height:35px; width:150px">
+        </div>
+        <br />
+        <div>
+            <a href="cn_preferences_edit" class="btn btn-primary" style="height:35px; width:150px">View / Edit prefs...</a>
+        </div>
+    </div>
+</form>

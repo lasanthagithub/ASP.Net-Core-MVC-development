@@ -17,7 +17,7 @@ namespace MS4App.Controllers
 
 
         [Authorize]
-        public IActionResult CnComputationLanding()
+        public IActionResult CnComputationViewEdit()
         {
             return View();
         }
