@@ -8,6 +8,7 @@ namespace MS4App.Models.CalculationModels
 {
     public class CnItemsModel
     {
+        [Key]
         [Required]
         public string CnItemId { get; set; }
 

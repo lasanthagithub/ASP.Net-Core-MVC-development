@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MS4App.Models;
+using MS4App.Models.CalculationModels;
 
 namespace MS4App.Data
 {
@@ -14,6 +15,9 @@ namespace MS4App.Data
             : base(options)
         {
         }
+
+        // Let entity framework know, these classes needs to be converted to db tables
+        public DbSet<CnItemsModel> CnItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
