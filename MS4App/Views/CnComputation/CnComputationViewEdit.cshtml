@@ -6,8 +6,10 @@
     ViewData["Title"] = "CnComputationViewEdit";
 }
 
+@model IEnumerable<MS4App.Models.CalculationModels.CnItemsModel>
+
 <form method="POST" action="/cn_computation_view_edit">
-    <div class="col-md-7">
+    <div class="col-md-9">
         <!--<h2>CN Computation</h2>-->
         <h3>Select prefered criteria</h3>
 
@@ -15,15 +17,22 @@
             <thead>
                 <tr>
                     <th rowspan="2"></th>
-                    <th rowspan="4">Cover Description</th>
+                    <th rowspan="4">@*@Html.DisplayNameFor(model => model.CnItemDescription)*@</th>
                 </tr>
 
             </thead>
             <tbody>
-                @for (int i = 1; i <= 10; i++){                
+                @foreach (var item in Model)
+                {                
                 <tr>
-                    <td><input type="checkbox" name="cover_des_check" id="Checkbox1" value="{{key}}"></td>
-                    <td>{{@i}}</td>
+                    <td>
+                    <input type="checkbox" name="CoverDesCheck" id="Checkbox1" value=@Html.DisplayFor(modelItem => item.CnItemId)>
+
+
+
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.CnItemDescription)
+                    </td>
                 </tr>
                 }
             </tbody>
@@ -33,7 +42,9 @@
 
 
 
-    <div class="col-md-3">
+
+
+    <div class="col-md-3" >
         <br />
         <div>
             <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 1..." style="height:35px; width:150px">

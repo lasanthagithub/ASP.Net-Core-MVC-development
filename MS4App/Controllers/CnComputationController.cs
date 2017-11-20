@@ -4,11 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using MS4App.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace MS4App.Controllers
 {
     public class CnComputationController : Controller
     {
+        // Gettng info from database
+        private readonly ApplicationDbContext _context;
+
+        // Constructor
+        public CnComputationController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+
         [Authorize]
         public IActionResult CnComputationLanding()
         {
@@ -17,9 +29,20 @@ namespace MS4App.Controllers
 
 
         [Authorize]
-        public IActionResult CnComputationViewEdit()
+        public async Task<IActionResult> CnComputationViewEdit()
         {
-            return View();
+            var applicationDbContext = _context.CnItems;
+            return View(await applicationDbContext.ToListAsync());
+
         }
+
+        //[Authorize]
+        //[HttpPost]
+        //public async Task<IActionResult> CnComputationViewEdit()
+        //{
+        //    var applicationDbContext = _context.CnItems;
+        //    return View(await applicationDbContext.ToListAsync());
+
+        //}
     }
 }
