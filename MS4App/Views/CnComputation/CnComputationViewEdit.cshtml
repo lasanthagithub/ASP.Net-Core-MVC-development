@@ -6,60 +6,62 @@
     ViewData["Title"] = "CnComputationViewEdit";
 }
 
-@model IEnumerable<MS4App.Models.CalculationModels.CnItemsModel>
+@model MS4App.Models.CalculationViewModels.CnItemsCollections
 
-<form method="POST" action="/cn_computation_view_edit">
+@*@using (Html.BeginForm("CnComputationViewEditTemp", "CnComputation"))
+{*@
+<form asp-controller="CnComputation" asp-action="CnComputationViewEditTemp" method="post">
     <div class="col-md-9">
-        <!--<h2>CN Computation</h2>-->
+
         <h3>Select prefered criteria</h3>
 
         <table class="table table.striped">
             <thead>
                 <tr>
                     <th rowspan="2"></th>
-                    <th rowspan="4">@*@Html.DisplayNameFor(model => model.CnItemDescription)*@</th>
+                    <th rowspan="4">
+                        @*@Html.DisplayNameFor(model=>model.CnItemDescription)    *@ CN Item Description
+                    </th>
                 </tr>
 
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                {                
-                <tr>
-                    <td>
-                    <input type="checkbox" name="CoverDesCheck" id="Checkbox1" value=@Html.DisplayFor(modelItem => item.CnItemId)>
-
-
-
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.CnItemDescription)
-                    </td>
-                </tr>
+                 
+                @for (int i = 0; i < Model.CnItemsList.Count; i++)
+                {
+                    var item = Model.CnItemsList[i];
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="cnItemsSelected" value="@Html.DisplayFor(modelItem=>item.CnItemId)"/>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem=>item.CnItemDescription)  
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
-
     </div>
-
-
-
-
 
     <div class="col-md-3" >
         <br />
         <div>
-            <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 1..." style="height:35px; width:150px">
+            <input type="submit" class="btn btn-primary" name="cnSelect" value="Save pref. 1..." style="height:35px; width:150px">
         </div>
         <br />
         <div>
-            <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 2..." style="height:35px; width:150px">
+            <input type="submit" class="btn btn-primary" name="cnSelect" value="Save pref. 2..." style="height:35px; width:150px">
         </div>
         <br />
         <div>
-            <input type="submit" class="btn btn-primary" name="disc_sel" value="Save pref. 3..." style="height:35px; width:150px">
+            <input type="submit" class="btn btn-primary" name="cnSelect" value="Save pref. 3..." style="height:35px; width:150px">
         </div>
         <br />
         <div>
             <a href="cn_preferences_edit" class="btn btn-primary" style="height:35px; width:150px">View / Edit prefs...</a>
         </div>
+
+
     </div>
 </form>
+@*}*@

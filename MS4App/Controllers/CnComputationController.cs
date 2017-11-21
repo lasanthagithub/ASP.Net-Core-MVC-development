@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using MS4App.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using MS4App.Models.CalculationViewModels;
 
 namespace MS4App.Controllers
 {
@@ -20,7 +22,7 @@ namespace MS4App.Controllers
             _context = context;
         }
 
-
+        
         [Authorize]
         public IActionResult CnComputationLanding()
         {
@@ -29,20 +31,25 @@ namespace MS4App.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> CnComputationViewEdit()
+        public IActionResult CnComputationViewEdit()
         {
             var applicationDbContext = _context.CnItems;
-            return View(await applicationDbContext.ToListAsync());
+            var a = applicationDbContext.ToList();
+
+
+            CnItemsCollections cnItems = new CnItemsCollections();
+
+            cnItems.CnItemsList = a;
+            return View(cnItems);
 
         }
 
-        //[Authorize]
-        //[HttpPost]
-        //public async Task<IActionResult> CnComputationViewEdit()
-        //{
-        //    var applicationDbContext = _context.CnItems;
-        //    return View(await applicationDbContext.ToListAsync());
 
-        //}
+        [Authorize]
+        [HttpPost]
+        public IActionResult CnComputationViewEditTemp(string[] cnItemsSelected, string cnSelect)
+        {
+             return View();
+        }
     }
 }

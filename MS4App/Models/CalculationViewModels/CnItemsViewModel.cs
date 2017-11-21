@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MS4App.Models.CalculationModels
+namespace MS4App.Models.CalculationViewModels
 {
-    public class CnItemsModel
+    public class CnItems
     {
         [Key]
         [Required]
@@ -22,5 +22,11 @@ namespace MS4App.Models.CalculationModels
         public float BArea { get; set; }
         public float CArea { get; set; }
         public float DArea { get; set; }
+        public bool IsChecked { get; set; }
+    }
+
+    public class CnItemsCollections
+    {
+        public List<CnItems> CnItemsList { get; set; }
     }
 }

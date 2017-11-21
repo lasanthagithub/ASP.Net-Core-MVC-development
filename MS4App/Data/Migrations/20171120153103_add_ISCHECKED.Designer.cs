@@ -11,9 +11,10 @@ using System;
 namespace MS4App.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171120153103_add_ISCHECKED")]
+    partial class add_ISCHECKED
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -187,7 +188,7 @@ namespace MS4App.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItems", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationModels.CnItemsModel", b =>
                 {
                     b.Property<string>("CnItemId")
                         .ValueGeneratedOnAdd();
