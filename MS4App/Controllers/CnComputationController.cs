@@ -35,8 +35,7 @@ namespace MS4App.Controllers
         {
             var applicationDbContext = _context.CnItems;
             var a = applicationDbContext.ToList();
-
-
+            
             CnItemsCollections cnItems = new CnItemsCollections();
 
             cnItems.CnItemsList = a;
@@ -47,9 +46,16 @@ namespace MS4App.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult CnComputationViewEditTemp(string[] cnItemsSelected, string cnSelect)
+        public IActionResult CnComputationViewEdit(string[] cnItemsSelected, string cnSelect)
         {
-             return View();
+            var applicationDbContext = _context.CnItems;
+            var a = applicationDbContext.ToList();
+
+            CnItemsCollections cnItems = new CnItemsCollections
+            {
+                CnItemsList = a
+            };
+            return View(cnItems);
         }
     }
 }
