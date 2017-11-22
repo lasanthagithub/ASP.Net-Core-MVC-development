@@ -56,7 +56,15 @@ namespace MS4App.Controllers
                 CnItemsList = a
             };
 
-            ViewBag.CnSelectMessage = "Selected items save to " + cnSelect; 
+            Dictionary<string, string> cnSelecDict = new Dictionary<string, string>
+            {
+                { "Save pref. 1...", "Selection 1" },
+                { "Save pref. 2...", "Selection 2" },
+                { "Save pref. 3...", "Selection 3" }
+            };
+
+            ViewBag.CnSelectMessage = "Selected items save to " + cnSelecDict[cnSelect]; 
+
             return View(cnItems);
         }
     }
