@@ -63,7 +63,7 @@ namespace MS4App.Controllers
                 { "Save pref. 3...", "Selection 3" }
             };
 
-            ViewBag.CnSelectMessage = "Selected items save to " + cnSelecDict[cnSelect]; 
+            ViewBag.CnSelectMessage = cnSelecDict[cnSelect] + " is saved."; 
 
             return View(cnItems);
         }
