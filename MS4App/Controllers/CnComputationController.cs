@@ -64,11 +64,13 @@ namespace MS4App.Controllers
             };
             if (cnItemsSelected.Length > 0)
             {
-                ViewBag.CnSelectMessage = cnSelecDict[cnSelect] + " is saved.";
+                ViewBag.IsCnSelected = true;
+                ViewBag.CnMessage = cnSelecDict[cnSelect] +" is saved.";
             }
             else
             {
-                ViewBag.CnSelectMessage = "Please select at least one item!";
+                ViewBag.IsCnSelected = false;
+                ViewBag.CnMessage = "Please select at leat one item!";
             }
              
 
