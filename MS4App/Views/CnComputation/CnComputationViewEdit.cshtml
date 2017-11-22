@@ -15,6 +15,14 @@
 
         <h3>Select prefered criteria</h3>
 
+        @if (ViewBag.CnSelectMessage != null)
+        {
+            <div>
+                @ViewBag.CnSelectMessage
+            </div>
+
+        }
+
         <table class="table table.striped">
             <thead>
                 <tr>

@@ -55,6 +55,8 @@ namespace MS4App.Controllers
             {
                 CnItemsList = a
             };
+
+            ViewBag.CnSelectMessage = "Selected items save to " + cnSelect; 
             return View(cnItems);
         }
     }
