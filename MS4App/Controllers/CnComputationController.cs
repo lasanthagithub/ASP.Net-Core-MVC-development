@@ -66,6 +66,15 @@ namespace MS4App.Controllers
             {
                 ViewBag.IsCnSelected = true;
                 ViewBag.CnMessage = String.Format("{0} is saved.", cnSelecDict[cnSelect]);
+
+                //// Get selected items to Session
+                //Dictionary<>
+                //foreach (string cnItem in cnItemsSelected)
+                //{
+
+                //}
+                HttpContext.Session.SetString("itemsAll", cnItems.ToString());
+                HttpContext.Session.SetString  ("cnItemsSelected", cnItemsSelected.ToString());
             }
             else
             {
@@ -73,8 +82,14 @@ namespace MS4App.Controllers
                 ViewBag.CnMessage = "Please select at leat one item!";
             }
              
+            
 
             return View(cnItems);
+        }
+
+        public IActionResult ViewEditCnSelection()
+        {
+            return View();
         }
     }
 }
