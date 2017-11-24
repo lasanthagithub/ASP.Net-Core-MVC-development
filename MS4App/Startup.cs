@@ -33,7 +33,7 @@ namespace MS4App
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-
+            
             // For password security
             services.Configure<IdentityOptions>(options =>
            {
@@ -49,6 +49,10 @@ namespace MS4App
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            // Add sesion for cookies
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +72,8 @@ namespace MS4App
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

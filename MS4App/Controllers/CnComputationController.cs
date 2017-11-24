@@ -65,7 +65,7 @@ namespace MS4App.Controllers
             if (cnItemsSelected.Length > 0)
             {
                 ViewBag.IsCnSelected = true;
-                ViewBag.CnMessage = cnSelecDict[cnSelect] +" is saved.";
+                ViewBag.CnMessage = String.Format("{0} is saved.", cnSelecDict[cnSelect]);
             }
             else
             {
