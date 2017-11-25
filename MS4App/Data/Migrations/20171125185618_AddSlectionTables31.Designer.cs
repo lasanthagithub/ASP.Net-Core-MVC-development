@@ -5,15 +5,17 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using MS4App.Data;
 using System;
 
 namespace MS4App.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171125185618_AddSlectionTables31")]
+    partial class AddSlectionTables31
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,104 +213,46 @@ namespace MS4App.Data.Migrations
 
                     b.Property<float>("DArea");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<bool>("IsChecked");
 
                     b.HasKey("CnItemId");
 
                     b.ToTable("CnItems");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("CnItems");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect1", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelection1", b =>
                 {
-                    b.Property<string>("CnItemId")
-                        .ValueGeneratedOnAdd();
+                    b.HasBaseType("MS4App.Models.CalculationViewModels.CnItems");
 
-                    b.Property<int>("A");
-
-                    b.Property<float>("AArea");
-
-                    b.Property<int>("B");
-
-                    b.Property<float>("BArea");
-
-                    b.Property<int>("C");
-
-                    b.Property<float>("CArea");
-
-                    b.Property<string>("CnItemDescription")
-                        .IsRequired();
-
-                    b.Property<int>("D");
-
-                    b.Property<float>("DArea");
-
-                    b.Property<bool>("IsChecked");
-
-                    b.HasKey("CnItemId");
 
                     b.ToTable("CnItemsSelection1");
+
+                    b.HasDiscriminator().HasValue("CnItemsSelection1");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect2", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelection2", b =>
                 {
-                    b.Property<string>("CnItemId")
-                        .ValueGeneratedOnAdd();
+                    b.HasBaseType("MS4App.Models.CalculationViewModels.CnItems");
 
-                    b.Property<int>("A");
-
-                    b.Property<float>("AArea");
-
-                    b.Property<int>("B");
-
-                    b.Property<float>("BArea");
-
-                    b.Property<int>("C");
-
-                    b.Property<float>("CArea");
-
-                    b.Property<string>("CnItemDescription")
-                        .IsRequired();
-
-                    b.Property<int>("D");
-
-                    b.Property<float>("DArea");
-
-                    b.Property<bool>("IsChecked");
-
-                    b.HasKey("CnItemId");
 
                     b.ToTable("CnItemsSelection2");
+
+                    b.HasDiscriminator().HasValue("CnItemsSelection2");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect3", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelection3", b =>
                 {
-                    b.Property<string>("CnItemId")
-                        .ValueGeneratedOnAdd();
+                    b.HasBaseType("MS4App.Models.CalculationViewModels.CnItems");
 
-                    b.Property<int>("A");
-
-                    b.Property<float>("AArea");
-
-                    b.Property<int>("B");
-
-                    b.Property<float>("BArea");
-
-                    b.Property<int>("C");
-
-                    b.Property<float>("CArea");
-
-                    b.Property<string>("CnItemDescription")
-                        .IsRequired();
-
-                    b.Property<int>("D");
-
-                    b.Property<float>("DArea");
-
-                    b.Property<bool>("IsChecked");
-
-                    b.HasKey("CnItemId");
 
                     b.ToTable("CnItemsSelection3");
+
+                    b.HasDiscriminator().HasValue("CnItemsSelection3");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

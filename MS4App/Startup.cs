@@ -52,7 +52,12 @@ namespace MS4App
 
             // Add sesion for cookies
             services.AddDistributedMemoryCache();
-            services.AddSession();
+            services.AddSession(options => 
+            {
+                // Set Time out
+                //options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

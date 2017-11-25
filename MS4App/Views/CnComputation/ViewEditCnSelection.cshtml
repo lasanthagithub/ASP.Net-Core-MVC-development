@@ -5,8 +5,17 @@
 @{
     ViewData["Title"] = "CnComputationViewEdit";
 }
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
+<p>ViewBag.ItemsAll</p>
+<p>ViewBag.ItemsSelected</p>
 
-<p>@HttpContext.Session.GetString("itemsAll").ToDictionary()</p>
-<p>@HttpContext.Session.GetString("cnItemsSelected").ToString()</p>
+@using MS4App.Models.CalculationViewModels;
+
+
+@*@foreach (var ite in ViewBag.ItemsAll)
+{
+    <p>@ite</p>
+
+}*@
+
+
+@*querry from databases*@

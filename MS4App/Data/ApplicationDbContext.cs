@@ -18,10 +18,15 @@ namespace MS4App.Data
 
         // Let entity framework know, these classes needs to be converted to db tables
         public DbSet<CnItems> CnItems { get; set; }
+        public DbSet<CnItemsSelect1> CnItemsSelection1 { get; set; }
+        public DbSet<CnItemsSelect2> CnItemsSelection2 { get; set; }
+        public DbSet<CnItemsSelect3> CnItemsSelection3 { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);

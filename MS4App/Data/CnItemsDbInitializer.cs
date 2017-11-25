@@ -64,7 +64,7 @@ namespace MS4App.Data
             {
                 context.CnItems.Add(cnItem);
             }
-            //context.SaveChanges(); // uncomment for a news database
+            context.SaveChanges(); // uncomment for a news database
         }
     }
 }

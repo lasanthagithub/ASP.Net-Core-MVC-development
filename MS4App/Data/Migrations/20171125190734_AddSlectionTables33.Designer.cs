@@ -11,9 +11,10 @@ using System;
 namespace MS4App.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171125190734_AddSlectionTables33")]
+    partial class AddSlectionTables33
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,7 +219,7 @@ namespace MS4App.Data.Migrations
                     b.ToTable("CnItems");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect1", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelection1", b =>
                 {
                     b.Property<string>("CnItemId")
                         .ValueGeneratedOnAdd();
@@ -246,10 +247,10 @@ namespace MS4App.Data.Migrations
 
                     b.HasKey("CnItemId");
 
-                    b.ToTable("CnItemsSelection1");
+                    b.ToTable("CnItemsSelect1");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect2", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelection2", b =>
                 {
                     b.Property<string>("CnItemId")
                         .ValueGeneratedOnAdd();
@@ -277,10 +278,10 @@ namespace MS4App.Data.Migrations
 
                     b.HasKey("CnItemId");
 
-                    b.ToTable("CnItemsSelection2");
+                    b.ToTable("CnItemsSelect2");
                 });
 
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect3", b =>
+            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelection3", b =>
                 {
                     b.Property<string>("CnItemId")
                         .ValueGeneratedOnAdd();
@@ -308,7 +309,7 @@ namespace MS4App.Data.Migrations
 
                     b.HasKey("CnItemId");
 
-                    b.ToTable("CnItemsSelection3");
+                    b.ToTable("CnItemsSelect3");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
