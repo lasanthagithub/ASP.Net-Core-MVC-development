@@ -76,12 +76,40 @@ namespace MS4App.Controllers
 
             if (cnItemsSelected.Length > 0)
             {
-                HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelect);
+                HttpContext.Session.SetInt32(cnSelecDict[cnSelect], 0);
+
                 ViewBag.IsCnSelected = true;
                 ViewBag.CnMessage = String.Format("{0} is saved.", cnSelecDict[cnSelect]);
-                //// Get selected items to Session
-                
+
                 //TempData["Selection"] = cnItemsSelected;
+
+                //var SelectDB = _context.CnItemsSelection1;
+
+                dynamic SelectDB = null; 
+
+                if (cnSelect == "Save pref. 1...")
+                {
+                    SelectDB = _context.CnItemsSelection1;
+                }
+                else if (cnSelect == "Save pref. 2...")
+                {
+                    SelectDB = _context.CnItemsSelection2;
+                }
+                else if (cnSelect == "Save pref. 3...")
+                {
+                    SelectDB = _context.CnItemsSelection3;
+                }
+
+
+                // Remove old data
+                foreach (var item in SelectDB)
+                {
+                    // Check wheather the item is exists
+                    //var cNSelItem = SelectDB.FirstOrDefault(model => model.CnItemId == c.CnItemId);
+                    SelectDB.Remove(item);
+                }
+
+
 
                 foreach (var c in _context.CnItemsMain)
                 {
@@ -100,19 +128,13 @@ namespace MS4App.Controllers
                             CArea = c.CArea,
                             DArea = c.DArea,
                             IsChecked = c.IsChecked
-                        };       
+                        };
                         // Adding to DB
-                        _context.CnItemsSelection1.Add(cnSel);
+                        SelectDB.Add(cnSel);
                     }
-
-
-                    // Remove items
-                    CnItemsSelect1 item = _context.CnItemsSelection1.FirstOrDefault(model => model.CnItemId == c.CnItemId);
-                    _context.CnItemsSelection1.Remove(item);
-                    
+                  
                 }
                 _context.SaveChanges();
-
             }
             else
             {
@@ -122,7 +144,10 @@ namespace MS4App.Controllers
             return View(cnItems);
         }
 
-
+        private ApplicationDbContext GetContext()
+        {
+            return _context;
+        }
 
         public IActionResult ViewEditCnSelection()
         {

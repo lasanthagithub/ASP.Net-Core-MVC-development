@@ -49,43 +49,49 @@ namespace MS4App.Models.CalculationViewModels
         public bool IsChecked { get; set; }
     }
 
-    //public class CnItemsSelect2 /*: CnItems*/
-    //{
-    //    [Key]
-    //    [Required]
-    //    public string CnItemId { get; set; }
+    public class CnItemsSelect2 /*: CnItems*/
+    {
+        [Key]
+        public int S2Id { get; set; }
 
-    //    [Required]
-    //    public string CnItemDescription { get; set; }
-    //    public int A { get; set; }
-    //    public int B { get; set; }
-    //    public int C { get; set; }
-    //    public int D { get; set; }
-    //    public float AArea { get; set; }
-    //    public float BArea { get; set; }
-    //    public float CArea { get; set; }
-    //    public float DArea { get; set; }
-    //    public bool IsChecked { get; set; }
-    //}
+        [Required]
+        public string CnItemId { get; set; }
 
-    //public class CnItemsSelect3 /*: CnItems*/
-    //{
-    //    [Key]
-    //    [Required]
-    //    public string CnItemId { get; set; }
+        [Required]
+        public string CnItemDescription { get; set; }
+        public int A { get; set; }
+        public int B { get; set; }
+        public int C { get; set; }
+        public int D { get; set; }
+        public float AArea { get; set; }
+        public float BArea { get; set; }
+        public float CArea { get; set; }
+        public float DArea { get; set; }
+        public bool IsChecked { get; set; }
+    }
 
-    //    [Required]
-    //    public string CnItemDescription { get; set; }
-    //    public int A { get; set; }
-    //    public int B { get; set; }
-    //    public int C { get; set; }
-    //    public int D { get; set; }
-    //    public float AArea { get; set; }
-    //    public float BArea { get; set; }
-    //    public float CArea { get; set; }
-    //    public float DArea { get; set; }
-    //    public bool IsChecked { get; set; }
-    //}
+
+    public class CnItemsSelect3 /*: CnItems*/
+    {
+        [Key]
+        public int S3Id { get; set; }
+
+        [Required]
+        public string CnItemId { get; set; }
+
+        [Required]
+        public string CnItemDescription { get; set; }
+        public int A { get; set; }
+        public int B { get; set; }
+        public int C { get; set; }
+        public int D { get; set; }
+        public float AArea { get; set; }
+        public float BArea { get; set; }
+        public float CArea { get; set; }
+        public float DArea { get; set; }
+        public bool IsChecked { get; set; }
+    }
+
 
 
     public class CnItemsCollections

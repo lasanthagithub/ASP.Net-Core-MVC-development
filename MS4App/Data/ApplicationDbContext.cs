@@ -19,8 +19,8 @@ namespace MS4App.Data
         // Let entity framework know, these classes needs to be converted to db tables
         public DbSet<CnItems> CnItemsMain { get; set; }
         public DbSet<CnItemsSelect1> CnItemsSelection1 { get; set; }
-        //public DbSet<CnItems> CnItemsSelection2 { get; set; }
-        //public DbSet<CnItems> CnItemsSelection3 { get; set; }
+        public DbSet<CnItemsSelect2> CnItemsSelection2 { get; set; }
+        public DbSet<CnItemsSelect3> CnItemsSelection3 { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
