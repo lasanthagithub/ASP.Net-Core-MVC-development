@@ -73,12 +73,14 @@ namespace MS4App.Controllers
                 { "Save pref. 3...", "Selection 3" }
             };
 
+
             if (cnItemsSelected.Length > 0)
             {
+                HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelect);
                 ViewBag.IsCnSelected = true;
                 ViewBag.CnMessage = String.Format("{0} is saved.", cnSelecDict[cnSelect]);
                 //// Get selected items to Session
-
+                
                 //TempData["Selection"] = cnItemsSelected;
 
                 foreach (var c in _context.CnItemsMain)
@@ -103,7 +105,11 @@ namespace MS4App.Controllers
                         _context.CnItemsSelection1.Add(cnSel);
                     }
 
-                    _context.CnItemsSelection1.Remove(c.CnItemId);
+
+                    // Remove items
+                    CnItemsSelect1 item = _context.CnItemsSelection1.FirstOrDefault(model => model.CnItemId == c.CnItemId);
+                    _context.CnItemsSelection1.Remove(item);
+                    
                 }
                 _context.SaveChanges();
 
