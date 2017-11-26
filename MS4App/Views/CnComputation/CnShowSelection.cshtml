@@ -21,7 +21,7 @@
         <div>
             @if (ViewBag.CnSelection1 == "Selection 1")
             {
-                <a asp-action="" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>
+                <a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>
             }
             else
             {
@@ -31,53 +31,41 @@
 
         <br />
         <div>
+            @if (ViewBag.CnSelection2 == "Selection 2")
+            {
+                <a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 2</a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-primary" style="height:35px; width:150px" disabled>Preference 2</a>
+            }
 
-
-
-
-
-
-
-
-            @*{% if not session['cn_preference_2'] %}
-            <a href="#" class="btn btn-primary" style="height:35px; width:150px" disabled>Preference 2</a>
-            {% else %}
-            <a href="cn_preference_2" class="btn btn-primary" style="height:35px; width:150px">Preference 2</a>
-            {% endif %}*@
         </div>
         <br />
         <div>
+            @if (ViewBag.CnSelection3 == "Selection 3")
+            {
+                <a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-primary" style="height:35px; width:150px" disabled>Preference 3</a>
+            }
 
-
-
-
-
-
-
-
-            @*{% if not session['cn_preference_3'] %}
-            <a href="#" class="btn btn-primary" style="height:35px; width:150px" disabled>Preference 3</a>
-            {% else %}
-            <a href="cn_preference_3" class="btn btn-primary" style="height:35px; width:150px">Preference 3</a>
-            {% endif %}
-        </div>*@
+        </div>
         <br />
 
         <div>
 
+            @*@if (ViewBag.CnSelection1 == "Selection 1" | ViewBag.CnSelection2 == "Selection 2" | ViewBag.CnSelection3 == "Selection 3")
+            {*@
+                <a asp-action="CnComputationViewEdit" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Show / Edit CN items</a>
+            @*}*@
+            @*else
+            {
+                <a href="#" class="btn btn-primary" style="height:35px; width:150px" dissabled>Show / Edit CN items</a>
+            }*@
 
-
-
-
-
-
-
-
-            @*{% if not session['cn_preference_1'] and not session['cn_preference_2'] and not session['cn_preference_3'] %}
-            <a href="#" class="btn btn-primary" style="height:35px; width:150px" dissabled>Show / Edit CN items</a>
-            {% else %}
-            <a href="cn_computation_view_edit" class="btn btn-primary" style="height:35px; width:150px">Show / Edit CN items</a>
-            {% endif %}*@
         </div>
         <br />
     </div>
