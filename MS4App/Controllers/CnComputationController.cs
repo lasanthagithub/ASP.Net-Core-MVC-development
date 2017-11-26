@@ -85,19 +85,24 @@ namespace MS4App.Controllers
 
                 //var SelectDB = _context.CnItemsSelection1;
 
+                
+
                 dynamic SelectDB = null; 
 
                 if (cnSelect == "Save pref. 1...")
                 {
                     SelectDB = _context.CnItemsSelection1;
+                    HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelecDict[cnSelect]);
                 }
                 else if (cnSelect == "Save pref. 2...")
                 {
                     SelectDB = _context.CnItemsSelection2;
+                    HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelecDict[cnSelect]);
                 }
                 else if (cnSelect == "Save pref. 3...")
                 {
                     SelectDB = _context.CnItemsSelection3;
+                    HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelecDict[cnSelect]);
                 }
 
 
@@ -144,10 +149,6 @@ namespace MS4App.Controllers
             return View(cnItems);
         }
 
-        private ApplicationDbContext GetContext()
-        {
-            return _context;
-        }
 
         public IActionResult ViewEditCnSelection()
         {
@@ -162,6 +163,15 @@ namespace MS4App.Controllers
             return View(sel1CnItems);
             
         }
+
+        public IActionResult CnShowSelection()
+        {
+            ViewBag.CnSelection1 = HttpContext.Session.GetString("Selection 1");
+            ViewBag.CnSelection2 = HttpContext.Session.GetString("Selection 2");
+            ViewBag.CnSelection3 = HttpContext.Session.GetString("Selection 3");
+            return View();
+        }
+
 
     }
 }
