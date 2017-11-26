@@ -41,11 +41,12 @@ namespace MS4App.Controllers
 
         
             // Quarry Method 2
-            var applicationDbContext = from CnItem in _context.CnItems select CnItem;
+            var applicationDbContext = from CnItem in _context.CnItemsMain select CnItem;
    
            var a = applicationDbContext.ToList();
             
             CnItemsCollections cnItems = new CnItemsCollections();
+
 
             cnItems.CnItemsList = a;
             return View(cnItems);
@@ -57,13 +58,15 @@ namespace MS4App.Controllers
         [HttpPost]
         public IActionResult CnComputationViewEdit(string[] cnItemsSelected, string cnSelect)
         {
-            var applicationDbContext = _context.CnItems;
+            var applicationDbContext = _context.CnItemsMain;
             var a = applicationDbContext.ToList();
 
             CnItemsCollections cnItems = new CnItemsCollections
             {
                 CnItemsList = a
             };
+
+            CnItemsCollections sel1CnItems = new CnItemsCollections();
 
             Dictionary<string, string> cnSelecDict = new Dictionary<string, string>
             {
@@ -83,14 +86,28 @@ namespace MS4App.Controllers
 
                 //HttpContext.Session.SetString("cnItemsSelected", "Selected Items");
 
-                foreach (var c in _context.CnItems)
+                foreach (var c in _context.CnItemsMain)
                 {
                     if (cnItemsSelected.Contains(c.CnItemId))
                     {
-                        ;
+                        CnItemsSelect1 cnSel = new CnItemsSelect1()
+                        {
+                            CnItemId = c.CnItemId,
+                            CnItemDescription = c.CnItemDescription
+                        };       
+                        // Adding to DB
+                        _context.CnItemsSelection1.Add(cnSel);
                     }
-                }
 
+
+                }
+                _context.SaveChanges();
+
+                var sel1Dbcontext = _context.CnItemsSelection1;
+                var sel1 = sel1Dbcontext.ToList();
+
+
+                sel1CnItems.Sel1CnItemsList = sel1;
 
             }
             else
@@ -101,7 +118,7 @@ namespace MS4App.Controllers
              
             
 
-            return View(cnItems);
+            return View(sel1CnItems);
         }
 
         public IActionResult ViewEditCnSelection()
@@ -113,18 +130,18 @@ namespace MS4App.Controllers
             //                           select CnIte;
 
             // Quarry Method 3
-            var applicationDbContext = _context.CnItems.Where(c => c.CnItemId == "open_good" | c.CnItemId == "ditches_paved" | c.CnItemId == "gravel");
+            var applicationDbContext = _context.CnItemsMain.Where(c => c.CnItemId == "open_good" | c.CnItemId == "ditches_paved" | c.CnItemId == "gravel");
 
             //CnItemsCollections cnItems = new CnItemsCollections();
             List<CnItems> cnItems = new List<CnItems>();
 
-            foreach (var c in _context.CnItems)
-            {
-                if (cnItemsSelected.Contains(c.CnItemId))
-                {
-                    cnItems.Add(c);
-                }
-            }
+            //foreach (var c in _context.CnItems)
+            //{
+            //    if (cnItemsSelected.Contains(c.CnItemId))
+            //    {
+            //        cnItems.Add(c);
+            //    }
+            //}
             return View();
         }
     }

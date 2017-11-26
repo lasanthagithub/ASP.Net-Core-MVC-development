@@ -13,8 +13,8 @@ namespace MS4App.Data
             // check for the database. If exist, nothing done. If not, create a new
             context.Database.EnsureCreated();
 
-            // Look for data in Wine database
-            if (context.CnItems.Any())
+            // Look for data in CnItemsMain database
+            if (context.CnItemsMain.Any())
             {
                 return; // DB has been seeded
             }
@@ -62,7 +62,7 @@ namespace MS4App.Data
             // Add new data to DB just for checking
             foreach (CnItems cnItem in cnItems)
             {
-                context.CnItems.Add(cnItem);
+                context.CnItemsMain.Add(cnItem);
             }
             context.SaveChanges(); // uncomment for a news database
         }

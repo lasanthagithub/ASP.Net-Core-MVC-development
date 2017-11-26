@@ -11,9 +11,10 @@ using System;
 namespace MS4App.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171126002434_newTablesff")]
+    partial class newTablesff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,7 +190,7 @@ namespace MS4App.Data.Migrations
 
             modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItems", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("CnItemId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("A");
@@ -207,52 +208,15 @@ namespace MS4App.Data.Migrations
                     b.Property<string>("CnItemDescription")
                         .IsRequired();
 
-                    b.Property<string>("CnItemId")
-                        .IsRequired();
-
                     b.Property<int>("D");
 
                     b.Property<float>("DArea");
 
                     b.Property<bool>("IsChecked");
 
-                    b.HasKey("Id");
+                    b.HasKey("CnItemId");
 
-                    b.ToTable("CnItemsMain");
-                });
-
-            modelBuilder.Entity("MS4App.Models.CalculationViewModels.CnItemsSelect1", b =>
-                {
-                    b.Property<int>("S1Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("A");
-
-                    b.Property<float>("AArea");
-
-                    b.Property<int>("B");
-
-                    b.Property<float>("BArea");
-
-                    b.Property<int>("C");
-
-                    b.Property<float>("CArea");
-
-                    b.Property<string>("CnItemDescription")
-                        .IsRequired();
-
-                    b.Property<string>("CnItemId")
-                        .IsRequired();
-
-                    b.Property<int>("D");
-
-                    b.Property<float>("DArea");
-
-                    b.Property<bool>("IsChecked");
-
-                    b.HasKey("S1Id");
-
-                    b.ToTable("CnItemsSelection1");
+                    b.ToTable("CnItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
