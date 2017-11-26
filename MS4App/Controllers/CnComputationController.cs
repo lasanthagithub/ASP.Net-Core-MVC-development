@@ -66,8 +66,6 @@ namespace MS4App.Controllers
                 CnItemsList = a
             };
 
-            CnItemsCollections sel1CnItems = new CnItemsCollections();
-
             Dictionary<string, string> cnSelecDict = new Dictionary<string, string>
             {
                 { "Save pref. 1...", "Selection 1" },
@@ -83,9 +81,6 @@ namespace MS4App.Controllers
 
                 //TempData["Selection"] = cnItemsSelected;
 
-
-                //HttpContext.Session.SetString("cnItemsSelected", "Selected Items");
-
                 foreach (var c in _context.CnItemsMain)
                 {
                     if (cnItemsSelected.Contains(c.CnItemId))
@@ -93,56 +88,49 @@ namespace MS4App.Controllers
                         CnItemsSelect1 cnSel = new CnItemsSelect1()
                         {
                             CnItemId = c.CnItemId,
-                            CnItemDescription = c.CnItemDescription
+                            CnItemDescription = c.CnItemDescription,
+                            A = c.A,
+                            B = c.B,
+                            C = c.C,
+                            D = c.D,
+                            AArea = c.AArea,
+                            BArea = c.BArea,
+                            CArea = c.CArea,
+                            DArea = c.DArea,
+                            IsChecked = c.IsChecked
                         };       
                         // Adding to DB
                         _context.CnItemsSelection1.Add(cnSel);
                     }
 
-
+                    _context.CnItemsSelection1.Remove(c.CnItemId);
                 }
                 _context.SaveChanges();
-
-                var sel1Dbcontext = _context.CnItemsSelection1;
-                var sel1 = sel1Dbcontext.ToList();
-
-
-                sel1CnItems.Sel1CnItemsList = sel1;
 
             }
             else
             {
                 ViewBag.IsCnSelected = false;
                 ViewBag.CnMessage = "Please select at leat one item!";
-            }
-             
-            
-
-            return View(sel1CnItems);
+            }  
+            return View(cnItems);
         }
+
+
 
         public IActionResult ViewEditCnSelection()
         {
-            // Using LINQ
-            // Quarry Method 2
-            //var applicationDbContext = from CnIte in _context.CnItems
-            //                           where (CnIte.CnItemId == "open_good") | (CnIte.CnItemId == "ditches_paved")  
-            //                           select CnIte;
+            var sel1Dbcontext = _context.CnItemsSelection1;
+            var sel1 = sel1Dbcontext.ToList();
 
-            // Quarry Method 3
-            var applicationDbContext = _context.CnItemsMain.Where(c => c.CnItemId == "open_good" | c.CnItemId == "ditches_paved" | c.CnItemId == "gravel");
+            CnItemsCollections sel1CnItems = new CnItemsCollections()
+            {
+                Sel1CnItemsList = sel1
+            };           
 
-            //CnItemsCollections cnItems = new CnItemsCollections();
-            List<CnItems> cnItems = new List<CnItems>();
-
-            //foreach (var c in _context.CnItems)
-            //{
-            //    if (cnItemsSelected.Contains(c.CnItemId))
-            //    {
-            //        cnItems.Add(c);
-            //    }
-            //}
-            return View();
+            return View(sel1CnItems);
+            
         }
+
     }
 }
