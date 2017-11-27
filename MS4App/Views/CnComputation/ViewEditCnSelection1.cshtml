@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "_CnComputationLayout";
+}
+
+@{
+    ViewData["Title"] = "ViewEditSelection1";
+}
+
+@model MS4App.Models.CalculationViewModels.CnItemsCollections
+@*@using (Html.BeginForm("CnComputationViewEditTemp", "CnComputation"))
+    {*@
+
+<form method="POST" class="form-group">
+    <div class="col-md-7">
+        <div>
+            <table class="table table.striped">
+                <thead>
+                    <tr>
+                        <th colspan="5"></th>
+                        <th colspan="8"> Curve Number and Associated Areas </th>
+                    </tr>
+                    <!--subcolumns of Curver Number and Associated Areas-->
+                    <tr>
+                        <th colspan="5">Cover Description</th>
+                        <th colspan="1">A</th>
+                        <th colspan="1">Area</th>
+                        <th colspan="1">B</th>
+                        <th colspan="1">Area</th>
+                        <th colspan="1">C</th>
+                        <th colspan="1">Area</th>
+                        <th colspan="1">D</th>
+                        <th colspan="1">Area</th>
+                        <th colspan="1"></th>
+                    </tr>
+                </thead>
+
+                @for (int i = 0; i < Model.Sel1CnItemsList.Count; i++)
+                {
+                    var item = Model.Sel1CnItemsList[i];
+                    <tr>
+                        <td colspan="5">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
+                        <td colspan="1"><div id="DA1">@Html.DisplayFor(modelItem => item.A)</div></td>
+                        <td><input type="number" step="any" name=@Html.DisplayFor(modelItem => item.AArea) min="0" max="1" value="0.0"></td>
+                        <td><div id="DB1">@Html.DisplayFor(modelItem => item.B)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.BArea)" min="0" max="1" value="0.0"></td>
+                        <td><div id="DC1">@Html.DisplayFor(modelItem => item.C)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.CArea)" min="0" max="1" value="0.0"></td>
+                        <td><div id="DD1">@Html.DisplayFor(modelItem => item.D)</div></td>
+                        <td><input type="number" step="any" name=:"@Html.DisplayFor(modelItem => item.DArea)" min="0" max="1" value="0.0"></td>
+                        <td><div id="outputP1"></div></td>
+                    </tr>
+
+                }
+
+
+            </table>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        <br />
+
+        <div>
+            <input type="submit" class="btn btn-primary" name="disc_sel" value="Compute" style="height:35px; width:150px">
+        </div>
+        <br />
+        <div>
+            <a href="cn_preferences_edit" class="btn btn-primary" style="height:35px; width:150px">View / Edit prefs...</a>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

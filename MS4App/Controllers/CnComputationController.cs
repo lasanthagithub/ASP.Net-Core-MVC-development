@@ -155,30 +155,46 @@ namespace MS4App.Controllers
 
         // To display CN selections to enter values
         [HttpPost]
-        public IActionResult ViewEditCnSelection(string showSelect)
+        public IActionResult ViewEditCnSelection1(string showSelect)
         {
             ViewBag.CnSelection = showSelect;
             CnItemsCollections selCnItems = new CnItemsCollections();
-            dynamic dBList = null;
 
-            if (showSelect == "Selection 1")
-            {
-                var sel1DbContext = _context.CnItemsSelection1;
-                dBList = sel1DbContext.ToList();
-            }
-            else if (showSelect == "Selection 2")
-            {
-                var sel2DbContext = _context.CnItemsSelection2;
-                dBList = sel2DbContext.ToList();
-            }
-            else if (showSelect == "Selection 3")
-            {
-                var sel3DbContext = _context.CnItemsSelection3;
-                dBList = sel3DbContext.ToList();
-            }
-            return View(dBList);
+            var selDbContext = _context.CnItemsSelection1;
+            selCnItems.Sel1CnItemsList = selDbContext.ToList();
+    
+            return View(selCnItems);
             //return RedirectToAction("Index");
         }
+
+
+        [HttpPost]
+        public IActionResult ViewEditCnSelection2(string showSelect)
+        {
+            ViewBag.CnSelection = showSelect;
+            CnItemsCollections selCnItems = new CnItemsCollections();
+
+            var selDbContext = _context.CnItemsSelection2;
+            selCnItems.Sel2CnItemsList = selDbContext.ToList();
+
+            return View(selCnItems);
+            //return RedirectToAction("Index");
+        }
+
+
+        [HttpPost]
+        public IActionResult ViewEditCnSelection3(string showSelect)
+        {
+            ViewBag.CnSelection = showSelect;
+            CnItemsCollections selCnItems = new CnItemsCollections();
+
+            var selDbContext = _context.CnItemsSelection3;
+            selCnItems.Sel3CnItemsList = selDbContext.ToList();
+
+            return View(selCnItems);
+            //return RedirectToAction("Index");
+        }
+
 
         public IActionResult CnShowSelection()
         {
