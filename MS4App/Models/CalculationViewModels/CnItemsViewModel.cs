@@ -98,5 +98,7 @@ namespace MS4App.Models.CalculationViewModels
     {
         public List<CnItems> CnItemsList { get; set; }
         public List<CnItemsSelect1> Sel1CnItemsList { get; set; }
+        public List<CnItemsSelect2> Sel2CnItemsList { get; set; }
+        public List<CnItemsSelect3> Sel3CnItemsList { get; set; }
     }
 }

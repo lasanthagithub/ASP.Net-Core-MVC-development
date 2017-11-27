@@ -7,7 +7,7 @@
 }
 
 
-<form method="POST" action="/cn_computation_edit">
+<form method="POST" asp-controller="CnComputation" asp-action="ViewEditCnSelection">
     <div class="col-md-7">
         <!--<h3>Runoff Curve Number (CN) Computation Table</h3>
         <h4>SCS Method</h4>-->
@@ -21,7 +21,8 @@
         <div>
             @if (ViewBag.CnSelection1 == "Selection 1")
             {
-                <a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>
+                @*<a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>*@
+                <input type="submit" class="btn btn-primary" name="showSelect" value="Selection 1" style="height:35px; width:150px">
             }
             else
             {
@@ -33,7 +34,8 @@
         <div>
             @if (ViewBag.CnSelection2 == "Selection 2")
             {
-                <a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 2</a>
+                @*<a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 2</a>*@
+                <input type="submit" class="btn btn-primary" name="showSelect" value="Selection 2" style="height:35px; width:150px">
             }
             else
             {
@@ -45,7 +47,8 @@
         <div>
             @if (ViewBag.CnSelection3 == "Selection 3")
             {
-                <a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>
+                @*<a asp-action="ViewEditCnSelection" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Preference 1</a>*@
+                <input type="submit" class="btn btn-primary" name="showSelect" value="Selection 3" style="height:35px; width:150px">
             }
             else
             {
@@ -57,14 +60,7 @@
 
         <div>
 
-            @*@if (ViewBag.CnSelection1 == "Selection 1" | ViewBag.CnSelection2 == "Selection 2" | ViewBag.CnSelection3 == "Selection 3")
-            {*@
                 <a asp-action="CnComputationViewEdit" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">Show / Edit CN items</a>
-            @*}*@
-            @*else
-            {
-                <a href="#" class="btn btn-primary" style="height:35px; width:150px" dissabled>Show / Edit CN items</a>
-            }*@
 
         </div>
         <br />

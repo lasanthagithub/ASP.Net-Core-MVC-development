@@ -87,25 +87,30 @@ namespace MS4App.Controllers
 
                 
 
-                dynamic SelectDB = null; 
+                dynamic SelectDB = null;
+                dynamic cnSel = null;
 
                 if (cnSelect == "Save pref. 1...")
                 {
                     SelectDB = _context.CnItemsSelection1;
                     HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelecDict[cnSelect]);
+                    cnSel = new CnItemsSelect1();
                 }
                 else if (cnSelect == "Save pref. 2...")
                 {
                     SelectDB = _context.CnItemsSelection2;
                     HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelecDict[cnSelect]);
+                    cnSel = new CnItemsSelect2();
                 }
                 else if (cnSelect == "Save pref. 3...")
                 {
                     SelectDB = _context.CnItemsSelection3;
                     HttpContext.Session.SetString(cnSelecDict[cnSelect], cnSelecDict[cnSelect]);
+                    cnSel = new CnItemsSelect3();
+
                 }
 
-
+                
                 // Remove old data
                 foreach (var item in SelectDB)
                 {
@@ -120,20 +125,18 @@ namespace MS4App.Controllers
                 {
                     if (cnItemsSelected.Contains(c.CnItemId))
                     {
-                        CnItemsSelect1 cnSel = new CnItemsSelect1()
-                        {
-                            CnItemId = c.CnItemId,
-                            CnItemDescription = c.CnItemDescription,
-                            A = c.A,
-                            B = c.B,
-                            C = c.C,
-                            D = c.D,
-                            AArea = c.AArea,
-                            BArea = c.BArea,
-                            CArea = c.CArea,
-                            DArea = c.DArea,
-                            IsChecked = c.IsChecked
-                        };
+                        cnSel.CnItemId = c.CnItemId;
+                        cnSel.CnItemDescription = c.CnItemDescription;
+                        cnSel.A = c.A;
+                        cnSel.B = c.B;
+                        cnSel.C = c.C;
+                        cnSel.D = c.D;
+                        cnSel.AArea = c.AArea;
+                        cnSel.BArea = c.BArea;
+                        cnSel.CArea = c.CArea;
+                        cnSel.DArea = c.DArea;
+                        cnSel.IsChecked = c.IsChecked;
+
                         // Adding to DB
                         SelectDB.Add(cnSel);
                     }
@@ -150,18 +153,28 @@ namespace MS4App.Controllers
         }
 
 
-        public IActionResult ViewEditCnSelection()
+        // To display CN selections to enter values
+        [HttpPost]
+        public IActionResult ViewEditCnSelection(string showSelect)
         {
-            var sel1Dbcontext = _context.CnItemsSelection1;
-            var sel1 = sel1Dbcontext.ToList();
 
-            CnItemsCollections sel1CnItems = new CnItemsCollections()
+            CnItemsCollections selCnItems = new CnItemsCollections();
+                        
+            if (showSelect == "Selection 1")
             {
-                Sel1CnItemsList = sel1
-            };           
-
-            return View(sel1CnItems);
-            
+                var sel1DbContext = _context.CnItemsSelection1;
+                selCnItems.Sel1CnItemsList = sel1DbContext.ToList();            }
+            else if (showSelect == "Selection 2")
+            {
+                var sel2DbContext = _context.CnItemsSelection2;
+                selCnItems.Sel2CnItemsList = sel2DbContext.ToList();
+            }
+            else if (showSelect == "Selection 3")
+            {
+                var sel3DbContext = _context.CnItemsSelection3;
+                selCnItems.Sel3CnItemsList = sel3DbContext.ToList();
+            }
+            return View(selCnItems);
         }
 
         public IActionResult CnShowSelection()
