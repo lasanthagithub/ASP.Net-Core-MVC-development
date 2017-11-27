@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-
+@model MS4App.Models.CalculationViewModels.CnItemsCollections
 <form asp-controller="CnComputation" asp-action="CnComputationViewEdit" method="post">
     <div class="col-md-9">
 
@@ -24,7 +24,7 @@
 
                 @for (int i = 0; i < Model.Sel1CnItemsList.Count; i++)
                 {
-                    var item = Model.Sel1CnItemsList[i];
+                    var item = Model.Sel3CnItemsList[i];
                     <tr>
                         <td>
                             <input type="checkbox" name="cnItemsSelected" value="@Html.DisplayFor(modelItem=>item.CnItemId)" />
