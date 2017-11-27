@@ -6,12 +6,24 @@
     ViewData["Title"] = "ViewEditSelection";
 }
 
-@model MS4App.Models.CalculationViewModels.CnItemsCollections
+@*@model MS4App.Models.CalculationViewModels.CnItemsCollections*@
 @*@using (Html.BeginForm("CnComputationViewEditTemp", "CnComputation"))
     {*@
+@model Icollection
 
+@if(ViewBag.CnSelection == "Selection 1")
+{
+    var modelSelection = Model.Sel1CnItemsList;
 
-
+}
+else if (ViewBag.CnSelection == "Selection 2")
+{
+    var modelSelection = Model.Sel2CnItemsList;
+}
+else if (ViewBag.CnSelection == "Selection 3")
+{
+    var modelSelection = Model.Sel2CnItemsList;
+}
 
 
 <form asp-controller="CnComputation" asp-action="CnComputationViewEdit" method="post">
@@ -32,7 +44,7 @@
             </thead>
             <tbody>
 
-                @for (int i = 0; i < Model.Sel1CnItemsList.Count; i++)
+                @for (int i = 0; i < modelSelection.Count; i++)
                 {
                     var item = Model.Sel1CnItemsList[i];
                     <tr>

@@ -157,24 +157,26 @@ namespace MS4App.Controllers
         [HttpPost]
         public IActionResult ViewEditCnSelection(string showSelect)
         {
-
+            ViewBag.CnSelection = showSelect;
             CnItemsCollections selCnItems = new CnItemsCollections();
-                        
+            dynamic dBList = null;
+
             if (showSelect == "Selection 1")
             {
                 var sel1DbContext = _context.CnItemsSelection1;
-                selCnItems.Sel1CnItemsList = sel1DbContext.ToList();            }
+                dBList = sel1DbContext.ToList();
+            }
             else if (showSelect == "Selection 2")
             {
                 var sel2DbContext = _context.CnItemsSelection2;
-                selCnItems.Sel2CnItemsList = sel2DbContext.ToList();
+                dBList = sel2DbContext.ToList();
             }
             else if (showSelect == "Selection 3")
             {
                 var sel3DbContext = _context.CnItemsSelection3;
-                selCnItems.Sel3CnItemsList = sel3DbContext.ToList();
+                dBList = sel3DbContext.ToList();
             }
-            return View(selCnItems);
+            return View(dBList);
         }
 
         public IActionResult CnShowSelection()
