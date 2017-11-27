@@ -177,6 +177,7 @@ namespace MS4App.Controllers
                 dBList = sel3DbContext.ToList();
             }
             return View(dBList);
+            //return RedirectToAction("Index");
         }
 
         public IActionResult CnShowSelection()
