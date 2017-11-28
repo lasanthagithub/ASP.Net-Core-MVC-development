@@ -15,13 +15,15 @@
         <div>
             <table class="table table.striped">
                 <thead>
-                    <tr>
-                        <th></th>
-                        <th colspan="9"> Curve Number and Associated Areas </th>
+                    <tr>                       
+                        <th colspan="9"> 
+                            <h4>Curve Number and Associated Areas</h4> 
+                            <p>CN Selection 3</p>
+                        </th>
                     </tr>
                     <!--subcolumns of Curver Number and Associated Areas-->
                     <tr>
-                        <th colspan="5">Cover Description</th>
+                        <th colspan="3">Cover Description</th>
                         <th colspan="1">A</th>
                         <th>Area</th>
                         <th>B</th>
@@ -38,7 +40,7 @@
                 {
                     var item = Model.Sel3CnItemsList[i];
                     <tr>
-                        <td colspan="5">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
+                        <td colspan="3">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
                         <td><div id="DA1">@Html.DisplayFor(modelItem => item.A)</div></td>
                         <td><input type="number" step="any" name=@Html.DisplayFor(modelItem => item.AArea) min="0" value="0.0"></td>
                         <td><div id="DB1">@Html.DisplayFor(modelItem => item.B)</div></td>
