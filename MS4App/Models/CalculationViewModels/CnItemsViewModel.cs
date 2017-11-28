@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,6 +32,8 @@ namespace MS4App.Models.CalculationViewModels
     public class CnItemsSelect1 /*: CnItems*/
     {
         [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         public int S1Id { get; set; }
 
         [Required]

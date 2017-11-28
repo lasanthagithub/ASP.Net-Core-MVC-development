@@ -26,6 +26,11 @@ namespace MS4App.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            // To make primary key auto generate
+            //modelBuilder.Entity<CnItemsSelect1>()
+            //.Property(f => f.S1Id)
+            //.ValueGeneratedOnAddOrUpdate();
+
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);

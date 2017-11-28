@@ -117,12 +117,17 @@ namespace MS4App.Controllers
                     // Check wheather the item is exists
                     //var cNSelItem = SelectDB.FirstOrDefault(model => model.CnItemId == c.CnItemId);
                     SelectDB.Remove(item);
+                    
                 }
+                _context.SaveChanges();
 
 
+                var MainDbList = _context.CnItemsMain.ToList();
 
-                foreach (var c in _context.CnItemsMain)
+               // foreach (var c in _context.CnItemsMain)
+                for (int i = 0; i < MainDbList.Count(); i++)
                 {
+                    var c = MainDbList[i];
                     if (cnItemsSelected.Contains(c.CnItemId))
                     {
                         cnSel.CnItemId = c.CnItemId;
@@ -137,12 +142,16 @@ namespace MS4App.Controllers
                         cnSel.DArea = c.DArea;
                         cnSel.IsChecked = c.IsChecked;
 
-                        // Adding to DB
-                        SelectDB.Add(cnSel);
+                        if (ModelState.IsValid)
+                        {
+                            // Adding to DB
+                            SelectDB.Add(cnSel);
+                            _context.SaveChanges();
+                        }
                     }
                   
                 }
-                _context.SaveChanges();
+                //_context.SaveChanges();
             }
             else
             {
@@ -151,6 +160,7 @@ namespace MS4App.Controllers
             }  
             return View(cnItems);
         }
+
 
 
         // To display CN selections to enter values
