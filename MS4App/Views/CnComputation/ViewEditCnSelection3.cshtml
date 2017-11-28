@@ -1,62 +1,87 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    Layout = "_CnComputationLayout";
 }
 
+@{
+    ViewData["Title"] = "ViewEditSelection1";
+}
+<link href="~/css/site.css" rel="stylesheet" />
 @model MS4App.Models.CalculationViewModels.CnItemsCollections
-<form asp-controller="CnComputation" asp-action="CnComputationViewEdit" method="post">
+@*@using (Html.BeginForm("CnComputationViewEditTemp", "CnComputation"))
+    {*@
+
+<form method="POST" class="form-group">
     <div class="col-md-9">
+        <div>
+            <table class="table table.striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="9"> Curve Number and Associated Areas </th>
+                    </tr>
+                    <!--subcolumns of Curver Number and Associated Areas-->
+                    <tr>
+                        <th colspan="5">Cover Description</th>
+                        <th colspan="1">A</th>
+                        <th>Area</th>
+                        <th>B</th>
+                        <th>Area</th>
+                        <th>C</th>
+                        <th>Area</th>
+                        <th>D</th>
+                        <th>Area</th>
+                        <th> </th>
+                    </tr>
+                </thead>
 
-        <h3>Select prefered criteria</h3>
-
-        @await Html.PartialAsync("_CnSuccessOrError")
-        <table class="table table.striped">
-            <thead>
-                <tr>
-                    <th rowspan="2"></th>
-                    <th rowspan="4">
-                        @*@Html.DisplayNameFor(model=>model.CnItemDescription)    *@ CN Item Description
-                    </th>
-                </tr>
-
-            </thead>
-            <tbody>
-
-                @for (int i = 0; i < Model.Sel1CnItemsList.Count; i++)
+                @for (int i = 0; i < Model.Sel3CnItemsList.Count; i++)
                 {
                     var item = Model.Sel3CnItemsList[i];
                     <tr>
-                        <td>
-                            <input type="checkbox" name="cnItemsSelected" value="@Html.DisplayFor(modelItem=>item.CnItemId)" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CnItemDescription)
-                        </td>
+                        <td colspan="5">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
+                        <td><div id="DA1">@Html.DisplayFor(modelItem => item.A)</div></td>
+                        <td><input type="number" step="any" name=@Html.DisplayFor(modelItem => item.AArea) min="0" value="0.0"></td>
+                        <td><div id="DB1">@Html.DisplayFor(modelItem => item.B)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.BArea)" min="0" value="0.0"></td>
+                        <td><div id="DC1">@Html.DisplayFor(modelItem => item.C)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.CArea)" min="0" value="0.0"></td>
+                        <td><div id="DD1">@Html.DisplayFor(modelItem => item.D)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.DArea)" min="0" value="0.0"></td>
+                        <td><div id="outputP1"></div></td>
                     </tr>
+
                 }
-            </tbody>
-        </table>
+
+
+            </table>
+        </div>
+
     </div>
 
     <div class="col-md-3">
         <br />
-        <div>
-            <input type="submit" class="btn btn-primary" name="cnSelect" value="Save pref. 1..." style="height:35px; width:150px">
-        </div>
-        <br />
-        <div>
-            <input type="submit" class="btn btn-primary" name="cnSelect" value="Save pref. 2..." style="height:35px; width:150px">
-        </div>
-        <br />
-        <div>
-            <input type="submit" class="btn btn-primary" name="cnSelect" value="Save pref. 3..." style="height:35px; width:150px">
-        </div>
-        <br />
-        <div>
-            <a asp-action="CnComputationViewEdit" asp-controller="CnComputation" class="btn btn-primary" style="height:35px; width:150px">View / Edit prefs...</a>
-        </div>
 
-
+        <div>
+            <input type="submit" class="btn btn-primary" name="disc_sel" value="Compute" style="height:35px; width:150px">
+        </div>
+        <br />
+        <div>
+            <a href="cn_preferences_edit" class="btn btn-primary" style="height:35px; width:150px">View / Edit prefs...</a>
+        </div>
     </div>
 </form>
-@*}*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
