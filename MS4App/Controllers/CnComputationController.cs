@@ -245,6 +245,11 @@ namespace MS4App.Controllers
             return View();
         }
 
+        public IActionResult CnSelectionCompuet()
+        {
+            return View();
+        }
+
 
     }
 }
