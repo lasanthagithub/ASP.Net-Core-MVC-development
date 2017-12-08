@@ -196,6 +196,7 @@ namespace MS4App.Controllers
 
         // To display CN selections to enter values
         [HttpPost]
+        [Authorize]
         public IActionResult ViewEditCnSelection1(string showSelect)
         {
             ViewBag.CnSelection = showSelect;
@@ -210,6 +211,7 @@ namespace MS4App.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult ViewEditCnSelection2(string showSelect)
         {
             ViewBag.CnSelection = showSelect;
@@ -224,6 +226,7 @@ namespace MS4App.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult ViewEditCnSelection3(string showSelect)
         {
             ViewBag.CnSelection = showSelect;
@@ -245,11 +248,26 @@ namespace MS4App.Controllers
             return View();
         }
 
-        public IActionResult CnSelectionCompuet()
+        //[HttpPost]
+        //[Authorize]
+        //public IActionResult CnSelectionCompute(string cnCompute, string[] AArea, string[] BArea)
+        //{
+        //    ViewBag.cnCompute = cnCompute;
+        //    ViewBag.AArea = AArea;
+        //    ViewBag.BArea = BArea;
+
+        //    return View();
+        //}
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult CnSelectionCompute(string cnCompute, IFormCollection collection)
         {
+            ViewBag.cnCompute = cnCompute;
+            ViewBag.AArea = collection.Keys;
+            //ViewBag.BArea = BArea;
+
             return View();
         }
-
-
     }
 }
