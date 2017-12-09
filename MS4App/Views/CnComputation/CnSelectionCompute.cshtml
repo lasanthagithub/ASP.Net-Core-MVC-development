@@ -8,10 +8,13 @@
 
 @ViewBag.cnCompute
 
-@ViewBag.AArea
+@*@ViewBag.AArea*@
 @*@ViewBag.BArea
 
-@foreach (var a in @ViewBag.BArea)
+@foreach (var a in @ViewBag.mylist)
 { 
     <p>@a</p>
 }*@
+
+@ViewData["Area1"]
+@ViewData["Area2"]

@@ -261,13 +261,45 @@ namespace MS4App.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult CnSelectionCompute(string cnCompute, IFormCollection collection)
+        public IActionResult CnSelectionCompute(string cnCompute, string[] AArea, string[] BArea, string[] CArea, string[] DArea, string selection)
         {
-            ViewBag.cnCompute = cnCompute;
-            ViewBag.AArea = collection.Keys;
-            //ViewBag.BArea = BArea;
+
+            if (selection == "selection1")
+            {
+                for (int i = 0; i < AArea.Length;  i++ )
+                {
+                    //ViewBag.AArea = AArea;
+                    //ViewBag.BArea = BArea;
+                    string area = String.Format("Area{0}", i.ToString());
+                    ViewData[area] = AArea[i];
+                }
+            }
+
+
 
             return View();
         }
+
+        //[HttpPost]
+        //[Authorize]
+        //public ActionResult CnSelectionCompute(string cnCompute, FormCollection collection)
+        //{
+        //    ViewBag.cnCompute = cnCompute;
+        //    //ViewBag.AArea = collection.All;
+        //    //ViewBag.BArea = BArea;
+        //    var allKey = new List<string>();
+
+        //    foreach (string key in collection.Keys)
+        //    {
+        //        //Response.WriteAsync("Key = " + key + "  ");
+        //        //Response.WriteAsync(collection[key]);
+        //        //Response.WriteAsync("<br/>");
+        //        Response.Wri
+        //       allKey.Append(key);
+        //    }
+
+        //    ViewBag.mylist = collection.Keys;
+        //    return View();
+        //}
     }
 }

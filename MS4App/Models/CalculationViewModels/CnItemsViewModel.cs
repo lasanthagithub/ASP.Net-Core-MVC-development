@@ -25,6 +25,7 @@ namespace MS4App.Models.CalculationViewModels
         public float BArea { get; set; }
         public float CArea { get; set; }
         public float DArea { get; set; }
+        public float Total { get; set; }
         public bool IsChecked { get; set; }
     }
 
@@ -49,6 +50,7 @@ namespace MS4App.Models.CalculationViewModels
         public float BArea { get; set; }
         public float CArea { get; set; }
         public float DArea { get; set; }
+        public float Total { get; set; }
         public bool IsChecked { get; set; }
     }
 
@@ -70,6 +72,7 @@ namespace MS4App.Models.CalculationViewModels
         public float BArea { get; set; }
         public float CArea { get; set; }
         public float DArea { get; set; }
+        public float Total { get; set; }
         public bool IsChecked { get; set; }
     }
 
@@ -92,6 +95,7 @@ namespace MS4App.Models.CalculationViewModels
         public float BArea { get; set; }
         public float CArea { get; set; }
         public float DArea { get; set; }
+        public float Total { get; set; }
         public bool IsChecked { get; set; }
     }
 
