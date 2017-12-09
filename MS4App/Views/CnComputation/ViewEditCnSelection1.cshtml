@@ -48,14 +48,10 @@
                         <td><div id="DC1">@Html.DisplayFor(modelItem => item.C)</div></td>
                         <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.CArea)" min="0"  value="0.0"></td>
                         <td><div id="DD1">@Html.DisplayFor(modelItem => item.D)</div></td>
-                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.DArea)" min="0"  value="0.0" asp-></td>
-
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.DArea)" min="0"  value="0.0"></td>
                         
-                        <td><div id="outputP1"><input name="selection" value="selection1"/></div></td>
-                        
+                        <td><div id="outputP1"><input type="hidden" name="selection" value="selection1"/></div></td>                      
                     </tr>
-                    <tr>@Html.DisplayNameFor(modelItem => item.DArea)</tr>
-                
 
                 }
 

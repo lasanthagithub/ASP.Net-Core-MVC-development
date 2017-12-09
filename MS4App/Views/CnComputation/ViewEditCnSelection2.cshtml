@@ -42,14 +42,15 @@
                     <tr>
                         <td colspan="3">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
                         <td><div id="DA1">@Html.DisplayFor(modelItem => item.A)</div></td>
-                        <td><input type="number" step="any" name=@Html.DisplayFor(modelItem => item.AArea) min="0" value="0.0"></td>
+                        <td><input type="number" step="any" name=@Html.DisplayNameFor(modelItem => item.AArea) min="0" value="0.0"></td>
                         <td><div id="DB1">@Html.DisplayFor(modelItem => item.B)</div></td>
-                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.BArea)" min="0" value="0.0"></td>
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.BArea)" min="0" value="0.0"></td>
                         <td><div id="DC1">@Html.DisplayFor(modelItem => item.C)</div></td>
-                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.CArea)" min="0" value="0.0"></td>
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.CArea)" min="0" value="0.0"></td>
                         <td><div id="DD1">@Html.DisplayFor(modelItem => item.D)</div></td>
-                        <td><input type="number" step="any" name="@Html.DisplayFor(modelItem => item.DArea)" min="0" value="0.0"></td>
-                        <td><div id="outputP1"></div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.DArea)" min="0" value="0.0"></td>
+
+                        <td><div id="outputP1"><input type="hidden" name="selection" value="selection1" /></div></td>
                     </tr>
 
                 }
@@ -64,7 +65,7 @@
         <br />
 
         <div>
-            <input type="submit" class="btn btn-primary" name="disc_sel" value="Compute" style="height:35px; width:150px">
+            <input type="submit" class="btn btn-primary" name="cnCompute" asp-action="CnSelectionCompute" asp-controller="CnComputation" value="Compute" style="height:35px; width:150px">
         </div>
         <br />
         <div>
