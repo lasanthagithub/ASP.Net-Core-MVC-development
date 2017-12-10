@@ -259,53 +259,29 @@ namespace MS4App.Controllers
         //    return View();
         //}
 
-        //[HttpPost]
-        //[Authorize]
-        //public IActionResult CnSelectionCompute(string cnCompute, string[] AArea, string[] BArea, string[] CArea, string[] DArea, string selection)
-        //{
-
-        //    if (selection == "selection1")
-        //    {
-        //        for (int i = 0; i < AArea.Length;  i++ )
-        //        {
-        //            //ViewBag.AArea = AArea;
-        //            //ViewBag.BArea = BArea;
-        //            string area = String.Format("Area{0}", i.ToString());
-        //            ViewData[area] = AArea[i];
-        //        }
-        //    }
-
-
-
-        //    return View();
-        //}
-
-
-
         [HttpPost]
         [Authorize]
-        public IActionResult CnSelectionCompute(string cnCompute, Dictionary<string, string> CnItemId, string selection)
+        public IActionResult CnSelectionCompute(string cnCompute, string[] AArea, string[] BArea, string[] CArea, string[] DArea, string selection)
         {
 
             if (selection == "selection1")
             {
-                foreach (var item in CnItemId)
+                for (int i = 0; i < AArea.Length; i++)
                 {
-                    ViewBag.AArea = item;
+                    //ViewBag.AArea = AArea;
+                    //ViewBag.BArea = BArea;
+                    string area = String.Format("Area{0}", i.ToString());
+                    ViewData[area] = AArea[i];
                 }
-                //for (int i = 0; i < CnItemId.Count; i++)
-                //{
-                //    //ViewBag.AArea = AArea;
-                //    //ViewBag.BArea = BArea;
-                //    string area = String.Format("Area{0}", i.ToString());
-                //    ViewData[area] = AArea[i];
-                //}
             }
 
 
 
             return View();
         }
+
+
+
 
 
         //[HttpPost]
