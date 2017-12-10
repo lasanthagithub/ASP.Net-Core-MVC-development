@@ -38,7 +38,7 @@
 
                 @for (int i = 0; i < Model.Sel3CnItemsList.Count; i++)
                 {
-                    var item = Model.Sel3CnItemsList[i];
+                    @*var item = Model.Sel3CnItemsList[i];
                     <tr>
                         <td colspan="3">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
                         <td><div id="DA1">@Html.DisplayFor(modelItem => item.A)</div></td>
@@ -49,6 +49,21 @@
                         <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.CArea)" min="0" value="0.0"></td>
                         <td><div id="DD1">@Html.DisplayFor(modelItem => item.D)</div></td>
                         <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.DArea)" min="0" value="0.0"></td>
+
+                        <td><div id="outputP1"><input type="hidden" name="selection" value="selection1" /></div></td>
+                    </tr>*@
+
+                    var item = Model.Sel3CnItemsList[i];
+                    <tr>
+                        <td colspan="3">@Html.DisplayFor(modelItem => item.CnItemDescription)</td>
+                        <td><div id="DA1">@Html.DisplayFor(modelItem => item.A)</div></td>
+                        <td><input type="number" step="any" name=@Html.DisplayNameFor(modelItem => item.CnItemId) min="0" value="0.0"></td>
+                        <td><div id="DB1">@Html.DisplayFor(modelItem => item.B)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.CnItemId)" min="0" value="0.0"></td>
+                        <td><div id="DC1">@Html.DisplayFor(modelItem => item.C)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.CnItemId)" min="0" value="0.0"></td>
+                        <td><div id="DD1">@Html.DisplayFor(modelItem => item.D)</div></td>
+                        <td><input type="number" step="any" name="@Html.DisplayNameFor(modelItem => item.CnItemId)" min="0" value="0.0"></td>
 
                         <td><div id="outputP1"><input type="hidden" name="selection" value="selection1" /></div></td>
                     </tr>
@@ -73,6 +88,7 @@
         </div>
     </div>
 </form>
+
 
 
 
