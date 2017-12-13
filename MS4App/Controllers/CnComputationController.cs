@@ -307,3 +307,5 @@ namespace MS4App.Controllers
         //}
     }
 }
+
+// http://www.niteshluharuka.com/change-height-of-textbox-control-in-windows-forms/
